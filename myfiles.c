@@ -3,8 +3,8 @@
 #include <stdio.h>
 #include <unistd.h>
 
-FILE *f1, *f2, *fout;
-char *f1, *f2, *fout;
+FILE *f1, *f2, *fout, *fin;
+char *f1Name, *f2Name, *foutName;
 char ch;
 
 int main (int argc, char *argv[])
@@ -21,8 +21,7 @@ int main (int argc, char *argv[])
         fout = argv[3];
     }
 
-    CopyFile(fileno(f1), f1);
-    CopyFile(, f2);
+    CopyFile(fileno(fout), f1);
 
     return 0;
 }
@@ -31,16 +30,17 @@ void WriteInFile (int fd, const char *buff, int len)
 {
     fout = fopen(fout ,"w");
 
-    while ( (ch = fgetc(fd)) != EOF )
-           {
-                fprintf("%c",ch);
-           }
+    while ( (ch = fgetc(fd)) != EOF ) {
+        fputc(ch, fout);
+    }
 
     fclose (fout);
 }
 
 void CopyFile (int fd, const char *file_in)
 {
+    fout = fdopen(fd ,"w");
+    fin = fopen(file_in ,"r");
 
     WriteInFile(fd, *file_in, 1);
 }
