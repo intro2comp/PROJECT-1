@@ -6,20 +6,16 @@ char ch;
 
 void WriteInFile (int fd, const char *buff, int len)
 {
-    fout = fopen(foutName ,"w");
-
-    while ( (ch = fgetc(f1)) != EOF ) {
+    fout = fdopen(fd ,"w");
+    while ( (ch = fgetc(fin)) != EOF ) {
         fputc(ch, fout);
     }
-
     fclose (fout);
 }
 
 void CopyFile (int fd, const char *file_in)
 {
-    fout = fdopen(fd ,"w");
     fin = fopen(file_in ,"r");
-
     WriteInFile(fd, file_in, 1);
 }
 
@@ -34,10 +30,10 @@ int main (int argc, char *argv[])
     else {
         f1Name = argv[1];
         f2Name = argv[2];
-        foutName = argv[3];
     }
 
     CopyFile(fileno(fout), f1Name);
+    CopyFile(fileno(fout), f2Name);
 
     return 0;
 }
