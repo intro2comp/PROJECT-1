@@ -1,0 +1,3 @@
+# Start file_2
+This is some more text
+# End file_2
