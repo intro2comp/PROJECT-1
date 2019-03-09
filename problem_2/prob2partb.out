@@ -1,1 +1,11 @@
-
+Hi i'm process 41293 and my parent is 37987
+Hi i'm process 41295 and my parent is 41293
+Hi i'm process 41296 and my parent is 41295
+Hi i'm process 41297 and my parent is 41296
+Hi i'm process 41298 and my parent is 41297
+Hi i'm process 41299 and my parent is 41298
+Hi i'm process 41300 and my parent is 41299
+Hi i'm process 41301 and my parent is 41300
+min: -100
+max: 100
+sum: -26054
