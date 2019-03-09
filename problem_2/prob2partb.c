@@ -1,4 +1,4 @@
-#include "data.h"
+#include "info.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <limits.h>
