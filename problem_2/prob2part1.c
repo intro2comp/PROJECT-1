@@ -8,7 +8,7 @@
 int *integers, size, sharedmem;
 
 
-int main(int argc, char *a[]){
+int main(int argc, char *argv[]){
     struct timeval start,end;
     gettimeofday(&start,NULL);
 
@@ -16,7 +16,7 @@ int main(int argc, char *a[]){
 
     integers = shmat(sharedmem, 0, 0);
 
-    FILE *input = fopen(a[1], "r");
+    FILE *input = fopen(argv[1], "r");
 
     size = 0;
     while(fscanf(input, "%d\n", &integers[size++]) != EOF);
@@ -34,8 +34,8 @@ int main(int argc, char *a[]){
     }
 
 
-    FILE *out = fopen(a[2], "w+");
-    fprintf(out, "Hi I\'m process %d and my parent is %d.\n", getpid(), getppid());
+    FILE *out = fopen(argv[2], "w+");
+    fprintf(out, "Hi I\'m process %d and my parent is %d\n", getpid(), getppid());
     fprintf(out, "Min: %d\n", min);
     fprintf(out, "Max: %d\n", max);
     fprintf(out, "Sum: %d\n", sum);
