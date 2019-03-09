@@ -12,7 +12,8 @@ const int BUFFER_SIZE = 256;
 
 const char *HELP_MESSAGE =
     "%s file_1 file_2 [file_n...] [file_out]\n"
-    "  file_1, file_2, file_n: file paths to be copied\n";
+    "  file_1, file_2, file_n: file paths to source files\n"
+    "  file_out: file path to destination file\n";
 
 char *ReadFileContents(int f)
 /* Read contents from a file descriptor *f* into a heap allocated

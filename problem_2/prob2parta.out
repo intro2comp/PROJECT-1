@@ -1,0 +1,14 @@
+#! Inputs !#
+
+# After going to problem_2 directory, enter:
+make
+
+# Afterwards type in:
+./prob2parta randINT10k.in prob2part1.out
+
+#! Output !#
+
+Hi I'm process 4003 and my parent is 2431.
+Min: 0
+Max: 10000
+Sum: 49925870
