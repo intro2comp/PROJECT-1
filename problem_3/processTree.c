@@ -6,7 +6,7 @@
 
 int main()
 {
-    pid_t pid, pid1, pid2, pid3;
+    pid_t pid, pid1;
 
     pid = fork();
 
