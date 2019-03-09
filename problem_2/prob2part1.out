@@ -2,6 +2,8 @@
 
 ./pa.sh randINT10k.in prob2part1.out
 
+more prob2part1.out
+
 # Output #
 
 hi, i'm process 21020 and my parent is 22146
