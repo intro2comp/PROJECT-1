@@ -8,10 +8,10 @@ Make
 
 #! Output !#
 
-hi, i'm process 25944 and my parent is 25877
-min: 0
-max: 10000
-sum: 49925870
+Hi I'm process 25944 and my parent is 25877.
+Min: 0
+Max: 10000
+Sum: 49925870
 
 
 
