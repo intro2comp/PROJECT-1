@@ -1,4 +1,18 @@
+#! Inputs !# 
+
+#After going to problem 2 directory, enter:
+Make
+#Afterwards type in: 
+./make randINT10k.in prob2part1.out
+
+
+#! Output !#
+
 hi, i'm process 25944 and my parent is 25877
 min: 0
 max: 10000
 sum: 49925870
+
+
+
+(6354 Microseconds)
