@@ -6,6 +6,6 @@ Hi i'm process 41298 and my parent is 41297
 Hi i'm process 41299 and my parent is 41298
 Hi i'm process 41300 and my parent is 41299
 Hi i'm process 41301 and my parent is 41300
-min: -100
-max: 100
-sum: -26054
+min: 0
+max: 10000
+sum: 49255870
