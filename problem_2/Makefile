@@ -1,5 +1,5 @@
 all:
-	gcc -o pa.sh ICprob2part1.c
+	gcc -o make ICprob2part1.c
 
 clean:
 	rm -f *.sh
