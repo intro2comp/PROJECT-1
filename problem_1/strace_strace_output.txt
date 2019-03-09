@@ -1,258 +1,279 @@
 
 /* INPUT */
 
-$ strace ./myfiles file_1.txt file_2.txt
+$ strace strace ./myfiles file_1.txt file_2.txt
 
 /* OUTPUT */
 
-execve("./myfiles", ["./myfiles", "file_1.txt", "file_2.txt"], 0x7fffdd0209a0 /* 18 vars */) = 0
-brk(NULL)                               = 0x7ffff3b9e000
-access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file
-or directory)
-access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file
-or directory)
+execve("/usr/bin/strace", ["strace", "./myfiles", "file_1.txt", "file_2.txt"], 0x7fffdab0aa58 /* 18 vars */) = 0
+brk(NULL)                               = 0x7fffcda0e000
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
 openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
 fstat(3, {st_mode=S_IFREG|0644, st_size=27542, ...}) = 0
-mmap(NULL, 27542, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f898c4d0000
+mmap(NULL, 27542, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f5f33a18000
 close(3)                                = 0
-access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file
-or directory)
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/x86_64-linux-gnu/libunwind-ptrace.so.0", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\20\16\0\0\0\0\0\0"..., 832) = 832fstat(3, {st_mode=S_IFREG|0644, st_size=14528, ...}) = 0
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f5f33a10000mmap(NULL, 2109736, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f5f333f0000
+mprotect(0x7f5f333f2000, 2097152, PROT_NONE) = 0
+mmap(0x7f5f335f2000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3,
+0x2000) = 0x7f5f335f2000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/x86_64-linux-gnu/libunwind-x86_64.so.8", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0`\26\0\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0644, st_size=67736, ...}) = 0
+mmap(NULL, 2223752, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f5f331d0000
+mprotect(0x7f5f331e0000, 2093056, PROT_NONE) = 0
+mmap(0x7f5f333df000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3,
+0xf000) = 0x7f5f333df000
+mmap(0x7f5f333e1000, 56968, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f5f333e1000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
 openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
 read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\260\34\2\0\0\0\0\0"..., 832) = 832
 fstat(3, {st_mode=S_IFREG|0755, st_size=2030544, ...}) = 0
-mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS,
--1, 0) = 0x7f898c4c0000
-mmap(NULL, 4131552, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f898be00000
-mprotect(0x7f898bfe7000, 2097152, PROT_NONE) = 0
-mmap(0x7f898c1e7000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1e7000) = 0x7f898c1e7000
-mmap(0x7f898c1ed000, 15072, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f898c1ed000
+mmap(NULL, 4131552, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f5f32dd0000
+mprotect(0x7f5f32fb7000, 2097152, PROT_NONE) = 0
+mmap(0x7f5f331b7000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1e7000) = 0x7f5f331b7000
+mmap(0x7f5f331bd000, 15072, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f5f331bd000
 close(3)                                = 0
-arch_prctl(ARCH_SET_FS, 0x7f898c4c14c0) = 0
-mprotect(0x7f898c1e7000, 16384, PROT_READ) = 0
-mprotect(0x7f898c801000, 4096, PROT_READ) = 0
-mprotect(0x7f898c427000, 4096, PROT_READ) = 0
-munmap(0x7f898c4d0000, 27542)           = 0
-openat(AT_FDCWD, "myfile.out", O_WRONLY|O_CREAT, 0666) = 3
-openat(AT_FDCWD, "file_1.txt", O_RDONLY) = 4
-brk(NULL)                               = 0x7ffff3b9e000
-brk(0x7ffff3bbf000)                     = 0x7ffff3bbf000
-read(4, "#", 1)                         = 1
-read(4, " ", 1)                         = 1
-read(4, "S", 1)                         = 1
-read(4, "t", 1)                         = 1
-read(4, "a", 1)                         = 1
-read(4, "r", 1)                         = 1
-read(4, "t", 1)                         = 1
-read(4, " ", 1)                         = 1
-read(4, "f", 1)                         = 1
-read(4, "i", 1)                         = 1
-read(4, "l", 1)                         = 1
-read(4, "e", 1)                         = 1
-read(4, "_", 1)                         = 1
-read(4, "1", 1)                         = 1
-read(4, "\r", 1)                        = 1
-read(4, "\n", 1)                        = 1
-read(4, "T", 1)                         = 1
-read(4, "h", 1)                         = 1
-read(4, "i", 1)                         = 1
-read(4, "s", 1)                         = 1
-read(4, " ", 1)                         = 1
-read(4, "i", 1)                         = 1
-read(4, "s", 1)                         = 1
-read(4, " ", 1)                         = 1
-read(4, "s", 1)                         = 1
-read(4, "o", 1)                         = 1
-read(4, "m", 1)                         = 1
-read(4, "e", 1)                         = 1
-read(4, " ", 1)                         = 1
-read(4, "t", 1)                         = 1
-read(4, "e", 1)                         = 1
-read(4, "x", 1)                         = 1
-read(4, "t", 1)                         = 1
-read(4, "\r", 1)                        = 1
-read(4, "\n", 1)                        = 1
-read(4, "#", 1)                         = 1
-read(4, " ", 1)                         = 1
-read(4, "E", 1)                         = 1
-read(4, "n", 1)                         = 1
-read(4, "d", 1)                         = 1
-read(4, " ", 1)                         = 1
-read(4, "f", 1)                         = 1
-read(4, "i", 1)                         = 1
-read(4, "l", 1)                         = 1
-read(4, "e", 1)                         = 1
-read(4, "_", 1)                         = 1
-read(4, "1", 1)                         = 1
-read(4, "\r", 1)                        = 1
-read(4, "\n", 1)                        = 1
-read(4, "", 1)                          = 0
-close(4)                                = 0
-write(3, "#", 1)                        = 1
-write(3, " ", 1)                        = 1
-write(3, "S", 1)                        = 1
-write(3, "t", 1)                        = 1
-write(3, "a", 1)                        = 1
-write(3, "r", 1)                        = 1
-write(3, "t", 1)                        = 1
-write(3, " ", 1)                        = 1
-write(3, "f", 1)                        = 1
-write(3, "i", 1)                        = 1
-write(3, "l", 1)                        = 1
-write(3, "e", 1)                        = 1
-write(3, "_", 1)                        = 1
-write(3, "1", 1)                        = 1
-write(3, "\r", 1)                       = 1
-write(3, "\n", 1)                       = 1
-write(3, "T", 1)                        = 1
-write(3, "h", 1)                        = 1
-write(3, "i", 1)                        = 1
-write(3, "s", 1)                        = 1
-write(3, " ", 1)                        = 1
-write(3, "i", 1)                        = 1
-write(3, "s", 1)                        = 1
-write(3, " ", 1)                        = 1
-write(3, "s", 1)                        = 1
-write(3, "o", 1)                        = 1
-write(3, "m", 1)                        = 1
-write(3, "e", 1)                        = 1
-write(3, " ", 1)                        = 1
-write(3, "t", 1)                        = 1
-write(3, "e", 1)                        = 1
-write(3, "x", 1)                        = 1
-write(3, "t", 1)                        = 1
-write(3, "\r", 1)                       = 1
-write(3, "\n", 1)                       = 1
-write(3, "#", 1)                        = 1
-write(3, " ", 1)                        = 1
-write(3, "E", 1)                        = 1
-write(3, "n", 1)                        = 1
-write(3, "d", 1)                        = 1
-write(3, " ", 1)                        = 1
-write(3, "f", 1)                        = 1
-write(3, "i", 1)                        = 1
-write(3, "l", 1)                        = 1
-write(3, "e", 1)                        = 1
-write(3, "_", 1)                        = 1
-write(3, "1", 1)                        = 1
-write(3, "\r", 1)                       = 1
-write(3, "\n", 1)                       = 1
-fstat(1, {st_mode=S_IFCHR|0660, st_rdev=makedev(4, 1), ...}) = 0
-ioctl(1, TCGETS, {B38400 opost isig icanon echo ...}) = 0
-write(1, "Copying file 'file_1.txt' to 'my"..., 42Copying file 'file_1.txt' to 'myfile.out'
-) = 42
-openat(AT_FDCWD, "file_2.txt", O_RDONLY) = 4
-read(4, "#", 1)                         = 1
-read(4, " ", 1)                         = 1
-read(4, "S", 1)                         = 1
-read(4, "t", 1)                         = 1
-read(4, "a", 1)                         = 1
-read(4, "r", 1)                         = 1
-read(4, "t", 1)                         = 1
-read(4, " ", 1)                         = 1
-read(4, "f", 1)                         = 1
-read(4, "i", 1)                         = 1
-read(4, "l", 1)                         = 1
-read(4, "e", 1)                         = 1
-read(4, "_", 1)                         = 1
-read(4, "2", 1)                         = 1
-read(4, "\r", 1)                        = 1
-read(4, "\n", 1)                        = 1
-read(4, "T", 1)                         = 1
-read(4, "h", 1)                         = 1
-read(4, "i", 1)                         = 1
-read(4, "s", 1)                         = 1
-read(4, " ", 1)                         = 1
-read(4, "i", 1)                         = 1
-read(4, "s", 1)                         = 1
-read(4, " ", 1)                         = 1
-read(4, "s", 1)                         = 1
-read(4, "o", 1)                         = 1
-read(4, "m", 1)                         = 1
-read(4, "e", 1)                         = 1
-read(4, " ", 1)                         = 1
-read(4, "m", 1)                         = 1
-read(4, "o", 1)                         = 1
-read(4, "r", 1)                         = 1
-read(4, "e", 1)                         = 1
-read(4, " ", 1)                         = 1
-read(4, "t", 1)                         = 1
-read(4, "e", 1)                         = 1
-read(4, "x", 1)                         = 1
-read(4, "t", 1)                         = 1
-read(4, "\r", 1)                        = 1
-read(4, "\n", 1)                        = 1
-read(4, "#", 1)                         = 1
-read(4, " ", 1)                         = 1
-read(4, "E", 1)                         = 1
-read(4, "n", 1)                         = 1
-read(4, "d", 1)                         = 1
-read(4, " ", 1)                         = 1
-read(4, "f", 1)                         = 1
-read(4, "i", 1)                         = 1
-read(4, "l", 1)                         = 1
-read(4, "e", 1)                         = 1
-read(4, "_", 1)                         = 1
-read(4, "2", 1)                         = 1
-read(4, "\r", 1)                        = 1
-read(4, "\n", 1)                        = 1
-read(4, "", 1)                          = 0
-close(4)                                = 0
-write(3, "#", 1)                        = 1
-write(3, " ", 1)                        = 1
-write(3, "S", 1)                        = 1
-write(3, "t", 1)                        = 1
-write(3, "a", 1)                        = 1
-write(3, "r", 1)                        = 1
-write(3, "t", 1)                        = 1
-write(3, " ", 1)                        = 1
-write(3, "f", 1)                        = 1
-write(3, "i", 1)                        = 1
-write(3, "l", 1)                        = 1
-write(3, "e", 1)                        = 1
-write(3, "_", 1)                        = 1
-write(3, "2", 1)                        = 1
-write(3, "\r", 1)                       = 1
-write(3, "\n", 1)                       = 1
-write(3, "T", 1)                        = 1
-write(3, "h", 1)                        = 1
-write(3, "i", 1)                        = 1
-write(3, "s", 1)                        = 1
-write(3, " ", 1)                        = 1
-write(3, "i", 1)                        = 1
-write(3, "s", 1)                        = 1
-write(3, " ", 1)                        = 1
-write(3, "s", 1)                        = 1
-write(3, "o", 1)                        = 1
-write(3, "m", 1)                        = 1
-write(3, "e", 1)                        = 1
-write(3, " ", 1)                        = 1
-write(3, "m", 1)                        = 1
-write(3, "o", 1)                        = 1
-write(3, "r", 1)                        = 1
-write(3, "e", 1)                        = 1
-write(3, " ", 1)                        = 1
-write(3, "t", 1)                        = 1
-write(3, "e", 1)                        = 1
-write(3, "x", 1)                        = 1
-write(3, "t", 1)                        = 1
-write(3, "\r", 1)                       = 1
-write(3, "\n", 1)                       = 1
-write(3, "#", 1)                        = 1
-write(3, " ", 1)                        = 1
-write(3, "E", 1)                        = 1
-write(3, "n", 1)                        = 1
-write(3, "d", 1)                        = 1
-write(3, " ", 1)                        = 1
-write(3, "f", 1)                        = 1
-write(3, "i", 1)                        = 1
-write(3, "l", 1)                        = 1
-write(3, "e", 1)                        = 1
-write(3, "_", 1)                        = 1
-write(3, "2", 1)                        = 1
-write(3, "\r", 1)                       = 1
-write(3, "\n", 1)                       = 1
-write(1, "Copying file 'file_2.txt' to 'my"..., 42Copying file 'file_2.txt' to 'myfile.out'
-) = 42
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/liblzma.so.5", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\340(\0\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0644, st_size=153984, ...}) = 0
+mmap(NULL, 2248968, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f5f32ba0000
+mprotect(0x7f5f32bc4000, 2097152, PROT_NONE) = 0
+mmap(0x7f5f32dc4000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3,
+0x24000) = 0x7f5f32dc4000
 close(3)                                = 0
-exit_group(0)                           = ?
-+++ exited with 0 +++
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/x86_64-linux-gnu/libunwind.so.8", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0P\36\0\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0644, st_size=51384, ...}) = 0
+mmap(NULL, 2207400, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f5f32980000
+mprotect(0x7f5f3298c000, 2093056, PROT_NONE) = 0
+mmap(0x7f5f32b8b000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3,
+0xb000) = 0x7f5f32b8b000
+mmap(0x7f5f32b8d000, 57000, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f5f32b8d000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libdl.so.2", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0P\16\0\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0644, st_size=14560, ...}) = 0
+mmap(NULL, 2109712, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f5f32770000
+mprotect(0x7f5f32773000, 2093056, PROT_NONE) = 0
+mmap(0x7f5f32972000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3,
+0x2000) = 0x7f5f32972000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libpthread.so.0", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0000b\0\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0755, st_size=144976, ...}) = 0
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f5f33a00000mmap(NULL, 2221184, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f5f32550000
+mprotect(0x7f5f3256a000, 2093056, PROT_NONE) = 0
+mmap(0x7f5f32769000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3,
+0x19000) = 0x7f5f32769000
+mmap(0x7f5f3276b000, 13440, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f5f3276b000
+close(3)                                = 0
+mmap(NULL, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f5f339f0000
+arch_prctl(ARCH_SET_FS, 0x7f5f339f0740) = 0
+mprotect(0x7f5f331b7000, 16384, PROT_READ) = 0
+mprotect(0x7f5f32769000, 4096, PROT_READ) = 0
+mprotect(0x7f5f32972000, 4096, PROT_READ) = 0
+mprotect(0x7f5f32dc4000, 4096, PROT_READ) = 0
+mprotect(0x7f5f32b8b000, 4096, PROT_READ) = 0
+mprotect(0x7f5f333df000, 4096, PROT_READ) = 0
+mprotect(0x7f5f335f2000, 4096, PROT_READ) = 0
+mprotect(0x7f5f33f07000, 299008, PROT_READ) = 0
+mprotect(0x7f5f33827000, 4096, PROT_READ) = 0
+munmap(0x7f5f33a18000, 27542)           = 0
+set_tid_address(0x7f5f339f0a10)         = 47
+set_robust_list(0x7f5f339f0a20, 24)     = 0
+rt_sigaction(SIGRTMIN, {sa_handler=0x7f5f32555cb0, sa_mask=[], sa_flags=SA_RESTORER|SA_SIGINFO, sa_restorer=0x7f5f32562890}, NULL, 8) = 0
+rt_sigaction(SIGRT_1, {sa_handler=0x7f5f32555d50, sa_mask=[], sa_flags=SA_RESTORER|SA_RESTART|SA_SIGINFO, sa_restorer=0x7f5f32562890}, NULL, 8) = 0
+rt_sigprocmask(SIG_UNBLOCK, [RTMIN RT_1], NULL, 8) = 0
+prlimit64(0, RLIMIT_STACK, NULL, {rlim_cur=8192*1024, rlim_max=8192*1024}) = 0
+getpid()                                = 47
+uname({sysname="Linux", nodename="Dan-Spectre", ...}) = 0
+brk(NULL)                               = 0x7fffcda0e000
+brk(0x7fffcda2f000)                     = 0x7fffcda2f000
+rt_sigprocmask(SIG_SETMASK, NULL, [], 8) = 0
+rt_sigaction(SIGCHLD, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f5f32e0ef20}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7fc1dea0ef20}, 8) = 0
+getuid()                                = 1000
+getgid()                                = 1000
+clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7f5f339f0a10) = 48
+ptrace(PTRACE_SEIZE, 48, NULL, 0)       = -1 EINVAL (Invalid argument)
+kill(48, SIGKILL)                       = 0
+--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_KILLED, si_pid=48, si_uid=1000, si_status=SIGKILL, si_utime=0, si_stime=0} ---
+wait4(48, [{WIFSIGNALED(s) && WTERMSIG(s) == SIGKILL}], 0, NULL) = 48
+pipe([3, 4])                            = 0
+close(4)                                = 0
+fcntl(3, F_GETFD)                       = 0
+fcntl(3, F_SETFD, FD_CLOEXEC)           = 0
+close(3)                                = 0
+stat("./myfiles", {st_mode=S_IFREG|0777, st_size=0, ...}) = 0
+clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7f5f339f0a10) = 49
+--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_TRAPPED, si_pid=49, si_uid=1000, si_status=SIGSTOP, si_utime=0, si_stime=0} ---
+close(0)                                = 0
+pipe([0, 3])                            = 0
+close(3)                                = 0
+fcntl(0, F_GETFD)                       = 0
+fcntl(0, F_SETFD, FD_CLOEXEC)           = 0
+close(1)                                = 0
+pipe([1, 3])                            = 0
+close(3)                                = 0
+fcntl(1, F_GETFD)                       = 0
+fcntl(1, F_SETFD, FD_CLOEXEC)           = 0
+rt_sigaction(SIGTTOU, {sa_handler=SIG_IGN, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f5f32e0ef20}, NULL, 8) = 0
+rt_sigaction(SIGTTIN, {sa_handler=SIG_IGN, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f5f32e0ef20}, NULL, 8) = 0
+rt_sigaction(SIGHUP, {sa_handler=0x7f5f33c93c40, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f5f32e0ef20}, NULL, 8) = 0
+rt_sigaction(SIGINT, {sa_handler=0x7f5f33c93c40, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f5f32e0ef20}, NULL, 8) = 0
+rt_sigaction(SIGQUIT, {sa_handler=0x7f5f33c93c40, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f5f32e0ef20}, NULL, 8) = 0
+rt_sigaction(SIGPIPE, {sa_handler=0x7f5f33c93c40, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f5f32e0ef20}, NULL, 8) = 0
+rt_sigaction(SIGTERM, {sa_handler=0x7f5f33c93c40, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f5f32e0ef20}, NULL, 8) = 0
+rt_sigprocmask(SIG_SETMASK, [HUP INT QUIT PIPE TERM], NULL, 8) = 0
+rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+wait4(-1, [{WIFSTOPPED(s) && WSTOPSIG(s) == SIGSTOP}], __WALL, NULL) = 49
+rt_sigprocmask(SIG_SETMASK, [HUP INT QUIT PIPE TERM], NULL, 8) = 0
+ptrace(PTRACE_SETOPTIONS, 49, NULL, PTRACE_O_TRACESYSGOOD|PTRACE_O_TRACEEXEC|PTRACE_O_TRACEEXIT) = 0
+ptrace(PTRACE_SYSCALL, 49, NULL, SIG_0) = 0
+--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_TRAPPED, si_pid=49, si_uid=1000, si_status=SIGTRAP, si_utime=0, si_stime=0} ---
+rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+wait4(-1, [{WIFSTOPPED(s) && WSTOPSIG(s) == SIGTRAP | 0x80}], __WALL, NULL) = 49
+rt_sigprocmask(SIG_SETMASK, [HUP INT QUIT PIPE TERM], NULL, 8) = 0
+ptrace(PTRACE_GETREGSET, 49, NT_PRSTATUS, [{iov_base=0x7f5f33f57660, iov_len=216}]) = 0
+fstat(2, {st_mode=S_IFCHR|0660, st_rdev=makedev(4, 1), ...}) = 0
+ioctl(2, TCGETS, {B38400 opost isig icanon echo ...}) = 0
+process_vm_readv(49, [{iov_base="./myfiles\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., iov_len=3328}], 1, [{iov_base=0x7fffd535b300, iov_len=3328}], 1, 0) = 3328
+process_vm_readv(49, [{iov_base="f\3115\325\377\177\0\0", iov_len=8}], 1, [{iov_base=0x7fffd535c740, iov_len=8}], 1, 0) = 8
+process_vm_readv(49, [{iov_base="./myfiles\0file_1.txt\0file_2.txt\0"..., iov_len=33}], 1, [{iov_base=0x7fffd535c966, iov_len=33}], 1, 0) = 33
+process_vm_readv(49, [{iov_base="p\3115\325\377\177\0\0", iov_len=8}], 1, [{iov_base=0x7fffd535c748, iov_len=8}], 1, 0) = 8
+process_vm_readv(49, [{iov_base="file_1.txt\0file_2.txt\0LS_COLORS="..., iov_len=33}], 1, [{iov_base=0x7fffd535c970, iov_len=33}], 1, 0) = 33
+process_vm_readv(49, [{iov_base="{\3115\325\377\177\0\0", iov_len=8}], 1, [{iov_base=0x7fffd535c750, iov_len=8}], 1, 0) = 8
+process_vm_readv(49, [{iov_base="file_2.txt\0LS_COLORS=rs=0:di=01;"..., iov_len=33}], 1,
+[{iov_base=0x7fffd535c97b, iov_len=33}], 1, 0) = 33
+process_vm_readv(49, [{iov_base="\0\0\0\0\0\0\0\0", iov_len=8}], 1, [{iov_base=0x7fffd535c758, iov_len=8}], 1, 0) = 8
+process_vm_readv(49, [{iov_base="\206\3115\325\377\177\0\0", iov_len=8}], 1, [{iov_base=0x7fffd535c760, iov_len=8}], 1, 0) = 8
+process_vm_readv(49, [{iov_base="r\3175\325\377\177\0\0", iov_len=8}], 1, [{iov_base=0x7fffd535c768, iov_len=8}], 1, 0) = 8
+process_vm_readv(49, [{iov_base="\202\3175\325\377\177\0\0", iov_len=8}], 1, [{iov_base=0x7fffd535c770, iov_len=8}], 1, 0) = 8
+process_vm_readv(49, [{iov_base="\244\3175\325\377\177\0\0", iov_len=8}], 1, [{iov_base=0x7fffd535c778, iov_len=8}], 1, 0) = 8
+process_vm_readv(49, [{iov_base="\261\3175\325\377\177\0\0", iov_len=8}], 1, [{iov_base=0x7fffd535c780, iov_len=8}], 1, 0) = 8
+process_vm_readv(49, [{iov_base="\276\3175\325\377\177\0\0", iov_len=8}], 1, [{iov_base=0x7fffd535c788, iov_len=8}], 1, 0) = 8
+process_vm_readv(49, [{iov_base="\345\3175\325\377\177\0\0", iov_len=8}], 1, [{iov_base=0x7fffd535c790, iov_len=8}], 1, 0) = 8
+process_vm_readv(49, [{iov_base="\370\3175\325\377\177\0\0", iov_len=8}], 1, [{iov_base=0x7fffd535c798, iov_len=8}], 1, 0) = 8
+process_vm_readv(49, [{iov_base="\t\3205\325\377\177\0\0", iov_len=8}], 1, [{iov_base=0x7fffd535c7a0, iov_len=8}], 1, 0) = 8
+process_vm_readv(49, [{iov_base="J\3205\325\377\177\0\0", iov_len=8}], 1, [{iov_base=0x7fffd535c7a8, iov_len=8}], 1, 0) = 8
+process_vm_readv(49, [{iov_base="Z\3205\325\377\177\0\0", iov_len=8}], 1, [{iov_base=0x7fffd535c7b0, iov_len=8}], 1, 0) = 8
+process_vm_readv(49, [{iov_base="n\3205\325\377\177\0\0", iov_len=8}], 1, [{iov_base=0x7fffd535c7b8, iov_len=8}], 1, 0) = 8
+process_vm_readv(49, [{iov_base="v\3205\325\377\177\0\0", iov_len=8}], 1, [{iov_base=0x7fffd535c7c0, iov_len=8}], 1, 0) = 8
+process_vm_readv(49, [{iov_base="\206\3205\325\377\177\0\0", iov_len=8}], 1, [{iov_base=0x7fffd535c7c8, iov_len=8}], 1, 0) = 8
+process_vm_readv(49, [{iov_base="\306\3265\325\377\177\0\0", iov_len=8}], 1, [{iov_base=0x7fffd535c7d0, iov_len=8}], 1, 0) = 8
+process_vm_readv(49, [{iov_base="\316\3265\325\377\177\0\0", iov_len=8}], 1, [{iov_base=0x7fffd535c7d8, iov_len=8}], 1, 0) = 8
+process_vm_readv(49, [{iov_base="\356\3265\325\377\177\0\0", iov_len=8}], 1, [{iov_base=0x7fffd535c7e0, iov_len=8}], 1, 0) = 8
+process_vm_readv(49, [{iov_base="\0\3275\325\377\177\0\0", iov_len=8}], 1, [{iov_base=0x7fffd535c7e8, iov_len=8}], 1, 0) = 8
+process_vm_readv(49, [{iov_base="\0\0\0\0\0\0\0\0", iov_len=8}], 1, [{iov_base=0x7fffd535c7f0, iov_len=8}], 1, 0) = 8
+write(2, "execve(\"./myfiles\", [\"./myfiles\""..., 91execve("./myfiles", ["./myfiles", "file_1.txt", "file_2.txt"], 0x7fffd535c760 /* 18 vars */) = 91
+ptrace(PTRACE_SYSCALL, 49, NULL, SIG_0) = 0
+rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+wait4(-1, [{WIFSTOPPED(s) && WSTOPSIG(s) == SIGTRAP | 0x80}], __WALL, NULL) = 49
+--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_TRAPPED, si_pid=49, si_uid=1000, si_status=SIGTRAP, si_utime=0, si_stime=0} ---
+rt_sigprocmask(SIG_SETMASK, [HUP INT QUIT PIPE TERM], NULL, 8) = 0
+ptrace(PTRACE_GETREGSET, 49, NT_PRSTATUS, [{iov_base=0x7f5f33f57660, iov_len=216}]) = 0
+write(2, ") = -1 ENOEXEC (Exec format erro"..., 35) = -1 ENOEXEC (Exec format error)
+) = 35
+ptrace(PTRACE_SYSCALL, 49, NULL, SIG_0) = 0
+rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_TRAPPED, si_pid=49, si_uid=1000, si_status=SIGTRAP, si_utime=0, si_stime=0} ---
+wait4(-1, [{WIFSTOPPED(s) && WSTOPSIG(s) == SIGTRAP | 0x80}], __WALL, NULL) = 49
+rt_sigprocmask(SIG_SETMASK, [HUP INT QUIT PIPE TERM], NULL, 8) = 0
+ptrace(PTRACE_GETREGSET, 49, NT_PRSTATUS, [{iov_base=0x7f5f33f57660, iov_len=216}]) = 0
+write(2, "fstat(2, ", 9fstat(2, )                = 9
+ptrace(PTRACE_SYSCALL, 49, NULL, SIG_0) = 0
+--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_TRAPPED, si_pid=49, si_uid=1000, si_status=SIGTRAP, si_utime=0, si_stime=0} ---
+rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+wait4(-1, [{WIFSTOPPED(s) && WSTOPSIG(s) == SIGTRAP | 0x80}], __WALL, NULL) = 49
+rt_sigprocmask(SIG_SETMASK, [HUP INT QUIT PIPE TERM], NULL, 8) = 0
+ptrace(PTRACE_GETREGSET, 49, NT_PRSTATUS, [{iov_base=0x7f5f33f57660, iov_len=216}]) = 0
+process_vm_readv(49, [{iov_base="\3\0\0\0\0\0\0\0Mb\r\0\0\0\f\0\1\0\0\0\0\0\0\0\260!\0\0\350\3\0\0"..., iov_len=144}], 1, [{iov_base=0x7fffd535a970, iov_len=144}], 1, 0) = 144
+write(2, "{st_mode=S_IFCHR|0660, st_rdev=m"..., 56{st_mode=S_IFCHR|0660, st_rdev=makedev(4, 1), ...}) = 0
+) = 56
+ptrace(PTRACE_SYSCALL, 49, NULL, SIG_0) = 0
+--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_TRAPPED, si_pid=49, si_uid=1000, si_status=SIGTRAP, si_utime=0, si_stime=0} ---
+rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+wait4(-1, [{WIFSTOPPED(s) && WSTOPSIG(s) == SIGTRAP | 0x80}], __WALL, NULL) = 49
+rt_sigprocmask(SIG_SETMASK, [HUP INT QUIT PIPE TERM], NULL, 8) = 0
+ptrace(PTRACE_GETREGSET, 49, NT_PRSTATUS, [{iov_base=0x7f5f33f57660, iov_len=216}]) = 0
+write(2, "ioctl(2, TCGETS", 15ioctl(2, TCGETS)         = 15
+ptrace(PTRACE_SYSCALL, 49, NULL, SIG_0) = 0
+--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_TRAPPED, si_pid=49, si_uid=1000, si_status=SIGTRAP, si_utime=0, si_stime=0} ---
+rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+wait4(-1, [{WIFSTOPPED(s) && WSTOPSIG(s) == SIGTRAP | 0x80}], __WALL, NULL) = 49
+rt_sigprocmask(SIG_SETMASK, [HUP INT QUIT PIPE TERM], NULL, 8) = 0
+ptrace(PTRACE_GETREGSET, 49, NT_PRSTATUS, [{iov_base=0x7f5f33f57660, iov_len=216}]) = 0
+process_vm_readv(49, [{iov_base="\2m\0\0\5\0\0\0\277\4\0\0;\212\0\0\0\3\34\177\25\4\0\1\377\21\23\32\377\22\17\27"..., iov_len=36}], 1, [{iov_base=0x7fffd535a8d0, iov_len=36}], 1, 0) = 36
+write(2, ", {B38400 opost isig icanon echo"..., 43, {B38400 opost isig icanon echo ...})
+= 0
+) = 43
+ptrace(PTRACE_SYSCALL, 49, NULL, SIG_0) = 0
+--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_TRAPPED, si_pid=49, si_uid=1000, si_status=SIGTRAP, si_utime=0, si_stime=0} ---
+rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+wait4(-1, [{WIFSTOPPED(s) && WSTOPSIG(s) == SIGTRAP | 0x80}], __WALL, NULL) = 49
+rt_sigprocmask(SIG_SETMASK, [HUP INT QUIT PIPE TERM], NULL, 8) = 0
+ptrace(PTRACE_GETREGSET, 49, NT_PRSTATUS, [{iov_base=0x7f5f33f57660, iov_len=216}]) = 0
+process_vm_readv(49, [{iov_base="strace: exec: Exec format error\n", iov_len=32}], 1, [{iov_base=0x7fffcda0e410, iov_len=32}], 1, 0) = 32
+write(2, "write(2, \"strace: exec: Exec for"..., 48write(2, "strace: exec: Exec format error\n", 32) = 48
+ptrace(PTRACE_SYSCALL, 49, NULL, SIG_0strace: exec: Exec format error
+) = 0
+--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_TRAPPED, si_pid=49, si_uid=1000, si_status=SIGTRAP, si_utime=0, si_stime=0} ---
+rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+wait4(-1, [{WIFSTOPPED(s) && WSTOPSIG(s) == SIGTRAP | 0x80}], __WALL, NULL) = 49
+rt_sigprocmask(SIG_SETMASK, [HUP INT QUIT PIPE TERM], NULL, 8) = 0
+ptrace(PTRACE_GETREGSET, 49, NT_PRSTATUS, [{iov_base=0x7f5f33f57660, iov_len=216}]) = 0
+write(2, ") = 32\n", 7) = 32
+)                 = 7
+ptrace(PTRACE_SYSCALL, 49, NULL, SIG_0) = 0
+--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_TRAPPED, si_pid=49, si_uid=1000, si_status=SIGTRAP, si_utime=0, si_stime=0} ---
+rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+wait4(-1, [{WIFSTOPPED(s) && WSTOPSIG(s) == SIGTRAP | 0x80}], __WALL, NULL) = 49
+rt_sigprocmask(SIG_SETMASK, [HUP INT QUIT PIPE TERM], NULL, 8) = 0
+ptrace(PTRACE_GETREGSET, 49, NT_PRSTATUS, [{iov_base=0x7f5f33f57660, iov_len=216}]) = 0
+write(2, "getpid(", 7getpid()                  = 7
+ptrace(PTRACE_SYSCALL, 49, NULL, SIG_0) = 0
+--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_TRAPPED, si_pid=49, si_uid=1000, si_status=SIGTRAP, si_utime=0, si_stime=0} ---
+rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+wait4(-1, [{WIFSTOPPED(s) && WSTOPSIG(s) == SIGTRAP | 0x80}], __WALL, NULL) = 49
+rt_sigprocmask(SIG_SETMASK, [HUP INT QUIT PIPE TERM], NULL, 8) = 0
+ptrace(PTRACE_GETREGSET, 49, NT_PRSTATUS, [{iov_base=0x7f5f33f57660, iov_len=216}]) = 0
+write(2, ")                               "..., 38)                                = 49
+) = 38
+ptrace(PTRACE_SYSCALL, 49, NULL, SIG_0) = 0
+--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_TRAPPED, si_pid=49, si_uid=1000, si_status=SIGTRAP, si_utime=0, si_stime=0} ---
+rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+wait4(-1, [{WIFSTOPPED(s) && WSTOPSIG(s) == SIGTRAP | 0x80}], __WALL, NULL) = 49
+rt_sigprocmask(SIG_SETMASK, [HUP INT QUIT PIPE TERM], NULL, 8) = 0
+ptrace(PTRACE_GETREGSET, 49, NT_PRSTATUS, [{iov_base=0x7f5f33f57660, iov_len=216}]) = 0
+write(2, "exit_group(1", 12exit_group(1)            = 12
+ptrace(PTRACE_SYSCALL, 49, NULL, SIG_0) = 0
+--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_TRAPPED, si_pid=49, si_uid=1000, si_status=SIGTRAP, si_utime=0, si_stime=0} ---
+rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+wait4(-1, [{WIFSTOPPED(s) && WSTOPSIG(s) == SIGTRAP} | PTRACE_EVENT_EXIT << 16], __WALL,
+NULL) = 49
+rt_sigprocmask(SIG_SETMASK, [HUP INT QUIT PIPE TERM], NULL, 8) = 0
+write(2, ")                           = ?\n", 32)                           = ?
+) = 32
+ptrace(PTRACE_SYSCALL, 49, NULL, SIG_0) = 0
+--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=49, si_uid=1000, si_status=1, si_utime=0, si_stime=0} ---
+rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+wait4(-1, [{WIFEXITED(s) && WEXITSTATUS(s) == 1}], __WALL, NULL) = 49
+rt_sigprocmask(SIG_SETMASK, [HUP INT QUIT PIPE TERM], NULL, 8) = 0
+write(2, "+++ exited with 1 +++\n", 22+++ exited with 1 +++
+) = 22
+rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+wait4(-1, 0x7fffd535c408, __WALL, NULL) = -1 ECHILD (No child processes)
+rt_sigprocmask(SIG_SETMASK, [HUP INT QUIT PIPE TERM], NULL, 8) = 0
+exit_group(1)                           = ?
++++ exited with 1 +++
