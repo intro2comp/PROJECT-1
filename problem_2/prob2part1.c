@@ -7,45 +7,46 @@
 #include <sys/ipc.h>
 #include <sys/shm.h>
 
-int shmid;
-int *numbers;
-int size;
+int *integers, size, sharedmem;
+
 
 int main(int argc, char *argv[]){
-  struct timeval start,end;
-  gettimeofday(&start,NULL);
+    struct timeval start,end;
+    gettimeofday(&start,NULL);
 
-  shmid = shmget(IPC_PRIVATE, 1000000*sizeof(int), 0666 | IPC_CREAT);
-  numbers = shmat(shmid, 0, 0);
+    sharedmem = shmget(IPC_PRIVATE, 1000000*sizeof(int), 0666 | IPC_CREAT);
 
-  FILE *input = fopen(argv[1], "r");
+    integers = shmat(sharedmem, 0, 0);
 
-  size = 0;
-  while(fscanf(input, "%d\n", &numbers[size++]) != EOF);
+    FILE *input = fopen(argv[1], "r");
 
-  int count = 0;
-  int sum = 0;
-  int max = INT_MIN;
-  int min = INT_MAX;
-  while(count < size){
-    int readn = numbers[count];
-    if(readn < min) min = readn;
-    if(readn > max) max = readn;
-    sum += readn;
-    count++;
-  }
+    size = 0;
+    while(fscanf(input, "%d\n", &integers[size++]) != EOF);
 
-  FILE *out = fopen(argv[2], "w+");
-  fprintf(out, "hi, i\'m process %d and my parent is %d\n", getpid(), getppid());
-  fprintf(out, "min: %d\n", min);
-  fprintf(out, "max: %d\n", max);
-  fprintf(out, "sum: %d\n", sum);
+    int iteration = 0;
+    int sum = 0;
+    int min = INT_MAX;
+    int max = INT_MIN;
+    while(iteration < size){
+        int readin = integers[iteration];
+        if(readin < min) min = readin;
+        if(readin > max) max = readin;
+        sum += readin;
+        iteration++;
+    }
 
-  shmdt(numbers);
-  shmctl(shmid, IPC_RMID, NULL);
 
-  gettimeofday(&end,NULL);
-  printf("%ld microseconds\n", (end.tv_sec*100000 + end.tv_usec) - (start.tv_sec*100000 + start.tv_usec));
+    FILE *out = fopen(argv[2], "w+");
+    fprintf(out, "Hi I\'m process %d and my parent is %d.\n", getpid(), getppid());
+    fprintf(out, "Min: %d\n", min);
+    fprintf(out, "Max: %d\n", max);
+    fprintf(out, "Sum: %d\n", sum);
 
-  return 0;
+    shmdt(integers);
+    shmctl(sharedmem, IPC_RMID, NULL);
+
+    gettimeofday(&end,NULL);
+    printf("%ld microseconds\n", (end.tv_sec*100000 + end.tv_usec) - (start.tv_sec*100000 + start.tv_usec));
+
+    return 0;
 }
